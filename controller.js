@@ -1,10 +1,8 @@
-/**
- * 这是一个控制器模块，主要负责业务逻辑
- */
 
-let heroModel = require('./model.js')
 
-module.exports = {
+
+
+module.exports={
   showIndexPage(req,res){   
     res.render('index',{})
   },
