@@ -4,9 +4,13 @@ let heroModel=require('./model.js')
 
 module.exports={
   showIndexPage(req,res){
-    heroModel.getAllHerosData((err,results)=>{
-      if(err) return res.end('404')
-      res.render('index',{data:results})
+    heroModel.getAllHerosData((err,result)=>{
+      if(err) return res.json({
+        code:201,
+        msg:'没有数据'
+      });
+      console.log(result)
+      res.render('index',{data:result})
     })   
     
   },

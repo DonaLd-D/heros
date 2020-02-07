@@ -2,7 +2,7 @@
 const mysql=require('mysql')
 
 let conn=mysql.createConnection({
-  host:'localhost',
+  host:'127.0.0.1',
   user:'root',
   password:'root',
   database:'hero',
@@ -14,10 +14,10 @@ conn.connect()
 module.exports={
       getAllHerosData(callback){
         let sql='select*from heros';
-        conn.query(sql,(err,results)=>{
+        conn.query(sql,(err,result)=>{
           if(err) return callback(err)
 
-          callback(null,results)
+          callback(null,result)
         })
       }
 }
