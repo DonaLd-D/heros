@@ -1,10 +1,14 @@
 
-
+let heroModel=require('./model.js')
 
 
 module.exports={
-  showIndexPage(req,res){   
-    res.render('index',{})
+  showIndexPage(req,res){
+    heroModel.getAllHerosData((err,results)=>{
+      if(err) return res.end('404')
+      res.render('index',{data:results})
+    })   
+    
   },
   showAddPage(req,res){
     res.render('add',{})
