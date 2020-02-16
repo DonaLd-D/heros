@@ -1,6 +1,6 @@
 <%- include('./layout/header.ejs')%>
 <div class="container hero-list">
-  <a class="btn btn-success pull-right" href="">添加英雄</a>
+  <a class="btn btn-success pull-right" href="/add">添加英雄</a>
   <table class="table table-hover">
     <thead>
       <th>编号</th>
@@ -21,9 +21,9 @@
         <td><%= item.adress%></td>
         <td><%= item.ctime%></td>
         <td>
-          <a href="">查看</a>
-          <a href="">编辑</a>
-          <a href="">删除</a>
+          <a href="/info?id=<%= item.id%>">查看</a>
+          <a href="/edit?id=<%= item.id%>">编辑</a>
+          <a href="javascript: ;" data-id='<%= item.id%>'>删除</a>
         </td>
       </tr>
     <% }) %>
