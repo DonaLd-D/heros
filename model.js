@@ -6,18 +6,18 @@ let conn=mysql.createConnection({
   user:'root',
   password:'root',
   database:'hero',
-  dataStrings:true
+  dateStrings: true
 })
 
 conn.connect()
 
 module.exports={
-      getAllHerosData(callback){
-        let sql='select*from heros';
-        conn.query(sql,(err,result)=>{
-          if(err) return callback(err)
+    getAllHerosData(callback){
+      let sql='select*from heros';
+      conn.query(sql,(err,result)=>{
+        if(err) return callback(err)
 
-          callback(null,result)
-        })
-      }
+        callback(null,result)
+      })
+    }
 }
