@@ -43,7 +43,12 @@ module.exports={
     })
   },
   showInfoPage(req,res){
-    res.render('info',{})
+    let { id } = req.query
+    heroModel.getOneHeroInfoById(id, (err, results) => {
+      if (err) return res.end('404')
+      // console.log(results);
+      res.render('info', results[0])
+    })
   },
   showEditPage(req,res){
     res.render('edit',{})

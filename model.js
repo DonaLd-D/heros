@@ -27,5 +27,14 @@ module.exports={
   
         callback(true)
       })
-    }
+    },
+    // 根据id查询某一条英雄数据
+    getOneHeroInfoById(id,callback){
+      let sql = 'select * from heros where id = ?'
+      conn.query(sql,[id],(err,results)=>{
+        if(err) return callback(err)
+
+        callback(null,results)
+      })
+    },
 }
