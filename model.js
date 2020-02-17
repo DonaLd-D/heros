@@ -44,4 +44,15 @@ module.exports={
         callback(true)
       })
     },
+    // 根据id来更新一条英雄数据
+    updateHeroInfoById(hero,callback){
+      let {id} = hero 
+      delete hero.id
+      let sql = 'update heros set ? where id = ?'
+      conn.query(sql,[hero,id],(err,results)=>{
+        if(err) return callback(false)
+
+        callback(true)
+      })
+    }
 }

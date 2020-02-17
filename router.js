@@ -29,6 +29,9 @@ router.get('/',(req,res)=>{
 .get('/delHero',(req,res)=>{
   heroCtrl.delHero(req,res)
 })
+.post('/updateHeroInfo',(req,res)=>{
+  heroCtrl.updateHeroInfoById(req,res)
+})
 
 // 4. 向外暴露路由
 module.exports = router

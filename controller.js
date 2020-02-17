@@ -51,7 +51,12 @@ module.exports={
     })
   },
   showEditPage(req,res){
-    res.render('edit',{})
+    let { id } = req.query
+    heroModel.getOneHeroInfoById(id, (err, results) => {
+      if (err) return res.end('404')
+
+      res.render('edit', results[0])
+    })
   },
   delHero(req,res){
     let { id } = req.query
@@ -66,5 +71,22 @@ module.exports={
         "msg": "删除英雄失败"
       })
     })
- }
+  },
+  // 根据id来更新英雄信息
+  updateHeroInfoById(req, res) {
+    // console.log(req.body);
+    let hero = req.body
+    hero.ctime = moment().format('YYYY-MM-DD HH:mm:ss')
+    heroModel.updateHeroInfoById(hero, result => {
+      if (result) return res.json({
+        "code": 200,
+        "msg": "更新英雄信息成功"
+      })
+
+      res.json({
+        "code": 201,
+        "msg": "更新英雄信息失败"
+      })
+    })
+  }
 }
