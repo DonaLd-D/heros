@@ -12,7 +12,7 @@ let conn=mysql.createConnection({
 conn.connect()
 
 module.exports={
-    getAllHerosData(callback){
+    getAllHeros(callback){
       let sql='select*from heros';
       conn.query(sql,(err,result)=>{
         if(err) return callback(err)

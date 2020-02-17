@@ -20,6 +20,9 @@ router.get('/',(req,res)=>{
 .get('/edit',(req,res)=>{
   heroCtrl.showEditPage(req,res)
 })
+.get('/getAllHeros',(req,res)=>{
+  heroCtrl.getAllHeros(req,res)
+})
 
 // 4. 向外暴露路由
 module.exports = router
