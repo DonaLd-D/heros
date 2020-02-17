@@ -37,4 +37,11 @@ module.exports={
         callback(null,results)
       })
     },
+    delHero(id,callback){
+      let sql = 'delete from heros where id = ?'
+      conn.query(sql,[id],(err,results)=>{
+        if(err) return callback(false)
+        callback(true)
+      })
+    },
 }

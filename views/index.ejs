@@ -33,7 +33,7 @@
       <td>
         <a href="/info?id={{$value.id}}">查看</a>
         <a href="/edit?id={{$value.id}}">编辑</a>
-        <a href="javascript: ;" class='btn-del' data-id="{{$value.id}}">删除</a>
+        <a href="javascript:;" class='btn-del' data-id="{{$value.id}}">删除</a>
       </td>
     </tr>
   {{/each}}
@@ -53,4 +53,22 @@
       }
     })
   })
+
+  // 2.1 使用委托的方式来注册事件
+  $('tbody').on('click','.btn-del',function(){
+    // console.log($(this).data('id'));
+      $.ajax({
+        type:'get',
+        url:'/delHero',
+        data:{
+          id: $(this).data('id')
+        },
+        success:function(res){
+          if(res.code==200){
+            // 刷新页面 其实是局部刷新
+            load()
+          }
+        }
+      })
+    })
 </script>

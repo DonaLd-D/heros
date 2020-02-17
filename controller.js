@@ -52,5 +52,19 @@ module.exports={
   },
   showEditPage(req,res){
     res.render('edit',{})
-  }
+  },
+  delHero(req,res){
+    let { id } = req.query
+    heroModel.delHero(id, result => {
+      if (result) return res.json({
+        "code": 200,
+        "msg": "删除英雄成功"
+      })
+
+      res.json({
+        "code": 201,
+        "msg": "删除英雄失败"
+      })
+    })
+ }
 }
