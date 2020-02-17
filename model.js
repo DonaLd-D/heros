@@ -19,5 +19,13 @@ module.exports={
 
         callback(null,result)
       })
+    },
+    addHero(hero,callback){
+      let sql = 'insert into heros set ?' // 使用参数化的方式来书写SQL语句 
+      conn.query(sql,[hero],(err,result)=>{
+        if(err) return callback(false)
+  
+        callback(true)
+      })
     }
 }

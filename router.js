@@ -23,6 +23,9 @@ router.get('/',(req,res)=>{
 .get('/getAllHeros',(req,res)=>{
   heroCtrl.getAllHeros(req,res)
 })
+.post('/addHero',(req,res)=>{
+  heroCtrl.addHero(req,res)
+})
 
 // 4. 向外暴露路由
 module.exports = router
