@@ -1,6 +1,7 @@
 node.js练习
 
 打开方式：
+
 1.在数据库中新建名为hero的数据表，分别有id,name,gender,age,adress,ctime字段
 
 2.拉取代码
